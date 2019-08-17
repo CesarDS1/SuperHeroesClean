@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SuperHeroesApp</string>
+    <string name="height">Height</string>
+    <string name="power">Power</string>
+    <string name="abilities">Abilities</string>
+    <string name="groups">Groups</string>
+</resources>
