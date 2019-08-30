@@ -4,8 +4,9 @@ import com.example.datalibrary.realm.SuperHeroeEntity
 import com.example.domain.model.SuperHero
 import com.example.domain.repository.ISuperHeroesDataSource
 import io.realm.Realm
+import javax.inject.Inject
 
-class SuperHeroesDataSourceImpl : ISuperHeroesDataSource {
+class SuperHeroesDataSourceImpl @Inject constructor() : ISuperHeroesDataSource {
 
     override fun getSuperHeroes(): List<SuperHero> {
         val realm = Realm.getDefaultInstance()

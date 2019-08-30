@@ -1,10 +1,18 @@
 package com.example.superheroesapp
 
-import android.app.Application
+import com.example.superheroesapp.di.component.DaggerAppComponent
+import dagger.android.AndroidInjector
+import dagger.android.DaggerApplication
 import io.realm.Realm
 import io.realm.RealmConfiguration
 
-class PresentationApp : Application() {
+class PresentationApp : DaggerApplication() {
+
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        val appComponent = DaggerAppComponent.builder().application(this).build()
+        appComponent.inject(this)
+        return appComponent
+    }
 
     override fun onCreate() {
         super.onCreate()

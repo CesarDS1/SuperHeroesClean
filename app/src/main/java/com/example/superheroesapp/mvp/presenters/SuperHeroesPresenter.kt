@@ -8,8 +8,9 @@ import com.example.superheroesapp.mvp.model.SuperHeroPresentation
 import com.example.superheroesapp.mvp.views.SuperHeroesView
 import io.reactivex.SingleObserver
 import io.reactivex.disposables.Disposable
+import javax.inject.Inject
 
-class SuperHeroesPresenter(
+class SuperHeroesPresenter @Inject constructor(
     private val superHeroesView: SuperHeroesView,
     private val getSuperHeroesDataUseCase: GetSuperHeroesDataUseCase,
     private val getSuperHeroesDataBaseUseCase: GetSuperHeroesDataBaseUseCase,
@@ -18,6 +19,7 @@ class SuperHeroesPresenter(
     var disposable: Disposable? = null
 
     fun getSuperHeroesList() {
+        superHeroesView.initViews()
         getSuperHeroesDataUseCase().subscribe(observerSuperHeroes())
     }
 

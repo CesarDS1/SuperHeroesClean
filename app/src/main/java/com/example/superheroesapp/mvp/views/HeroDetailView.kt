@@ -3,8 +3,9 @@ package com.example.superheroesapp.mvp.views
 import com.example.superheroesapp.activities.SuperHeroDetailActivity
 import com.example.superheroesapp.mvp.model.SuperHeroPresentation
 import com.squareup.picasso.Picasso
+import javax.inject.Inject
 
-class HeroDetailView(private val superHeroDetailActivity: SuperHeroDetailActivity) {
+class HeroDetailView @Inject constructor(private val superHeroDetailActivity: SuperHeroDetailActivity) {
 
 
     fun showHeroInformation(superHeroPresentation: SuperHeroPresentation) {

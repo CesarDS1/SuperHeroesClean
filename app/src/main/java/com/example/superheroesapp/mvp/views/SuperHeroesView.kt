@@ -8,12 +8,13 @@ import com.example.superheroesapp.activities.SuperHeroesActivity
 import com.example.superheroesapp.adapter.ClickItem
 import com.example.superheroesapp.adapter.SuperHeroesAdapter
 import com.example.superheroesapp.mvp.model.SuperHeroPresentation
+import javax.inject.Inject
 
-class SuperHeroesView(private val superHeroesActivity: SuperHeroesActivity) {
+class SuperHeroesView @Inject constructor(private val superHeroesActivity: SuperHeroesActivity) {
 
     var superHeroesAdapter = SuperHeroesAdapter()
 
-    init {
+    fun initViews() {
         superHeroesActivity.recyclerView.adapter = superHeroesAdapter
         superHeroesActivity.recyclerView.layoutManager = LinearLayoutManager(superHeroesActivity)
     }
@@ -29,7 +30,8 @@ class SuperHeroesView(private val superHeroesActivity: SuperHeroesActivity) {
         intent.putExtra(HERO_KEY, superHeroPresentation)
         superHeroesActivity.startActivity(intent)
     }
-    companion object{
+
+    companion object {
         const val HERO_KEY = "superhero"
     }
 

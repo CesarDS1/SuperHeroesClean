@@ -3,8 +3,9 @@ package com.example.datalibrary.repository
 import com.example.datalibrary.services.SuperHeroServicesImpl
 import com.example.domain.model.SuperHero
 import com.example.domain.repository.ISuperHeroesRepository
+import javax.inject.Inject
 
-class SuperHeroesRepositoryImpl(
+class SuperHeroesRepositoryImpl @Inject constructor(
     private val servicesImpl: SuperHeroServicesImpl,
     private val dataSource: SuperHeroesDataSourceImpl
 ) : ISuperHeroesRepository {
@@ -13,7 +14,8 @@ class SuperHeroesRepositoryImpl(
 
     override fun getRealmSuperHeroInformation() = dataSource.getSuperHeroes()
 
-    override fun saveSuperHeroInformation(superHeroes: List<SuperHero>) = dataSource.saveSuperHeroes(superHeroes)
+    override fun saveSuperHeroInformation(superHeroes: List<SuperHero>) =
+        dataSource.saveSuperHeroes(superHeroes)
 
 
 }

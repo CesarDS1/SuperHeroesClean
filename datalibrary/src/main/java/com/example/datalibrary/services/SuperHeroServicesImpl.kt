@@ -6,8 +6,9 @@ import com.example.datalibrary.network.RetrofitServicesInstance
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class SuperHeroServicesImpl : SuperHeroServices {
+class SuperHeroServicesImpl @Inject constructor() : SuperHeroServices {
 
     override fun getSuperHeroInformation(): Single<List<SuperHero>> {
         return RetrofitServicesInstance.getSuperHeroesApi().getSuperHeroesInformation()
